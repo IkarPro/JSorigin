@@ -6,13 +6,14 @@ let money,
 
 money = prompt('Your monthly budget?');
 time = prompt('Your date in format - YYYY-MM-DD');
+
 let arrExpenses = [prompt('Obyazatelnaya statiya rashodov'),
     prompt('Price'),
     prompt('Obyazatelnaya statiya rashodov'),
     prompt('Price')];
 expenses[arrExpenses[0]] = arrExpenses[1];
 expenses[arrExpenses[2]] = arrExpenses[3];
-console.log(expenses);
+
 let appData = {
     budget : money,
     timeData : time,
@@ -21,5 +22,5 @@ let appData = {
     income : [],
     savings : false
 };
-console.log(appData);
+
 alert('Budget na odin den - ' + money/30);
