@@ -6,21 +6,21 @@ window.addEventListener('DOMContentLoaded', function () {
        info = document.querySelector('.info-header'),
        infoContent = document.querySelectorAll('.info-tabcontent');
 
-   function hideTabContent(a) {
+   let hideTabContent = (a) => {
        for (let i = a; i < infoContent.length; i++){
            infoContent[i].classList.remove('show');
            infoContent[i].classList.add('hide');
        }
-   }
+   };
    
    hideTabContent(1);
    
-   function showTabContent(b) {
+   let showTabContent = (b) => {
        if (infoContent[b].classList.contains('hide')){
            infoContent[b].classList.remove('hide');
            infoContent[b].classList.add('show');
        }
-   }
+   };
 
    info.addEventListener('click', function (event) {
        let target = event.target;
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // TIMER
     let deadline = '2019-10-16';
    
-   function getTimeLeft(endtime) {
+   let getTimeLeft = (endtime) => {
        let t = Date.parse(endtime) - Date.parse(new Date()) - (3*60*60*1000),
            seconds = Math.floor((t/1000) % 60),
            minutes = Math.floor( (t/1000/60)%60 ),
@@ -50,9 +50,9 @@ window.addEventListener('DOMContentLoaded', function () {
            'minutes' : minutes,
            'hours' : hours
        }
-   }
+   };
 
-   function setTimer(id, endtime) {
+   let setTimer = (id, endtime) => {
        let timer = document.getElementById(id),
            hours = timer.querySelector('.hours'),
            minutes = timer.querySelector('.minutes'),
@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function () {
                seconds.textContent = '00';
            }
        }
-   }
+   };
 
    setTimer('timer' , deadline);
 
@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function openOverlay(button) {
+    let openOverlay = (button) => {
         overlay.style.display = 'block';
         button.classList.add('more-splash');
         document.body.style.overflow = 'hidden';
@@ -116,6 +116,10 @@ window.addEventListener('DOMContentLoaded', function () {
             button.classList.remove('more-splash');
             document.body.style.overflow = '';
         });
-    }
+    };
+
+    let newDiv = new Options(50, 200, 'red', 20, 'center');
+
+    newDiv.createDiv('Div создан!!!');
 });
 
